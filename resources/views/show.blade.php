@@ -46,7 +46,18 @@
                 <tr>
                   <td class="bg-secondary text-white">Totals</td>
                   @foreach ( $totals as $dayNumber => $totalPerDay )
-                    <td class="bg-secondary text-white"> {{ $totalPerDay }} </td>
+                    <td class="bg-secondary text-white">
+                      {{ floor($totalPerDay/60) }} hrs and
+                      {{ $totalPerDay-(floor($totalPerDay/60)*60) }} mins
+                    </td>
+                  @endforeach
+                </tr>
+                <tr>
+                  <td class="bg-secondary text-white">Working Alone</td>
+                  @foreach ( $minutesWorkingAlonePerDay as $day => $minutes )
+                    <td class="bg-secondary text-white">
+                      {{ $minutes }}
+                    </td>
                   @endforeach
                 </tr>
               </tbody>
